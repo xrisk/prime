@@ -1,5 +1,6 @@
 {
 	"//test":"test.py",
-	"//gif":"gif_search.py"
+	"//gif":"gif_search.py",
+	"//joke":"joke.py"
 
 }
