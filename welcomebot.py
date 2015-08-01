@@ -17,12 +17,12 @@ def get_credentials():
     if 'ChatExchangeU' in os.environ:
         res['user'] = os.environ['ChatExchangeU']
     else: 
-        res['user'] = raw_input('Enter your StackOverflow email ID:')
+        res['user'] = raw_input('Enter your Stack Overflow email ID:')
     
     if 'ChatExchangeP' in os.environ:
         res['pass'] = os.environ['ChatExchangeP']
     else:
-        res['pass'] = (raw_input('Enter your StackOverflow password:'))
+        res['pass'] = (raw_input('Enter your Stack Overflow password:'))
         
     if 'RoomID' in os.environ:
         res['room'] = (os.environ['RoomID'])
