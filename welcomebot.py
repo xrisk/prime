@@ -1,76 +1,14 @@
-from Bot import Bot
+from Bot import Bot, init_bot
 import time
-import ChatExchange.chatexchange.client
 import ChatExchange.chatexchange.events
-import ChatExchange.chatexchange.browser
 import thread
 import os
+import credentials
 
 bot = None
 modules = None
 privileged = []
 
-def get_credentials():
-    import os
-    res = {}
-    
-    if 'ChatExchangeU' in os.environ:
-        res['user'] = os.environ['ChatExchangeU']
-    else: 
-        res['user'] = raw_input('Enter your Stack Overflow email ID:')
-    
-    if 'ChatExchangeP' in os.environ:
-        res['pass'] = os.environ['ChatExchangeP']
-    else:
-        res['pass'] = (raw_input('Enter your Stack Overflow password:'))
-        
-    if 'RoomID' in os.environ:
-        res['room'] = (os.environ['RoomID'])
-    else:
-        res['room'] = (raw_input('Enter the ID of the Room which you wish to enter:'))
-                   
-    if 'HostSite' in os.environ:
-        res['host'] = (os.environ['HostSite'])
-    else:
-        import json
-        try:
-            hosts = json.loads(open('hosts.json').read())
-        except:
-            return None
-        print "Welcome Bot Host Site Options"
-        for i in hosts:
-            print i, hosts[i]
-        print "What will be your Welcome Bot's host site?"
-        try:
-            res['host'] = hosts[raw_input().strip()]
-
-        except KeyError:
-            res['host'] = "invalid" 
-    return res
-    
-def validate_credentials(c):
-    
-    if type(c) is not dict:
-        return False
-    if c['host'] == 'invalid':
-        return False
-    
-    try:
-        room = int(c['room'])
-        return True
-    except Exception, e:
-        print e
-        return False
-    
-def init_bot(cred):
-	
-    client = ChatExchange.chatexchange.client.Client(str(cred['host'].encode('utf-8'))[5:])
-    client.login(cred['user'], cred['pass'])
-    bot = client.get_me()
-    room = client.get_room(int(cred['room']))
-    room.join()
-    return Bot(client, bot, room)
-            
 
 def init_modules():
     import json, imp, os
@@ -81,10 +19,8 @@ def init_modules():
         for i in modules:
             s = imp.load_source(i[2:], os.path.join(cur_path, modules[i]))
             exec('import '+i[2:], globals())
-            # print i[2:]
-            
+            # print i[2:]        
     except IOError, e:
-       
         print e
     except ValueError, e:
     	print e
@@ -105,13 +41,14 @@ def main():
     init_modules()
                  
     while True:
-        creds = get_credentials()
+        creds = credentials.get()
         print creds
-        if validate_credentials(creds) == True: break
+        if credentials.validate(creds) == True: break
 
     bot = init_bot(creds)
     bot.start(on_event)
     
+    bot.message('Hola everyone :D')
     while True:
         text = raw_input(">> ")
         if text == "die":
