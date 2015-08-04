@@ -5,6 +5,3 @@ def main(str, priv=False):
 	for i in parsed:
 		s = s + i+'\n    -'
 	return s[:-1].strip()
-
-
-
