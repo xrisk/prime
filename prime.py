@@ -3,6 +3,7 @@ import time
 import ChatExchange.chatexchange.events
 import thread
 import os
+import sys
 import credentials
 
 bot = None
@@ -19,7 +20,6 @@ def init_modules():
         for i in modules:
             s = imp.load_source(i[2:], os.path.join(cur_path, modules[i]))
             exec('import '+i[2:], globals())
-            # print i[2:]        
     except IOError, e:
         print e
     except ValueError, e:
@@ -48,7 +48,7 @@ def main():
     bot = init_bot(creds)
     bot.start(on_event)
     
-    bot.message('Hola everyone :D')
+    if 'suppress-greet' not in sys.argv[0]:bot.message('Hola everyone :D')
     while True:
         text = raw_input(">> ")
         if text == "die":
