@@ -1,3 +1,10 @@
+def open(file,mode='r',buffering=-1):
+    import __builtin__    #use import builtins for Python 3.x
+    import os.path
+    filePath = os.path.join(os.path.dirname(__file__),file)
+    return __builtin__.open(filePath,mode,buffering)
+
+
 def get_credentials():
     import os
     res = {}
@@ -21,7 +28,7 @@ def get_credentials():
         res['host'] = (os.environ['HostSite'])
     else:
         import json
-        hosts = json.loads(open('credentials/hosts.json').read())
+        hosts = json.loads(open('hosts.json').read())
         print "Welcome Bot Host Site Options"
         for i in range(1, len(hosts)+1):
             print i, hosts[str(i)]
