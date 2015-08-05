@@ -55,15 +55,15 @@ def main():
     bot = init_bot(creds)
     bot.start(on_event)
     
-    if 'suppress-greet' not in sys.argv[0]:bot.message('Hola everyone :D')
     while True:
-        text = raw_input(">> ")
-        if text == "die":
-            bot.message("I'm dead :(")
-            time.sleep(0.4)
-            break
-        else:
-            bot.message(text)
+      if 'no-input' not in sys.argv:  
+          text = raw_input(">> ")
+          if text == "die":
+              bot.message("I'm dead :(")
+              time.sleep(0.4)
+              break
+          else:
+              bot.message(text)
 
     os._exit(6)
 
