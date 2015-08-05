@@ -21,13 +21,10 @@ def get_credentials():
         res['host'] = (os.environ['HostSite'])
     else:
         import json
-        try:
-            hosts = json.loads(open('hosts.json').read())
-        except:
-            return None
+        hosts = json.loads(open('credentials/hosts.json').read())
         print "Welcome Bot Host Site Options"
-        for i in hosts:
-            print i, hosts[i]
+        for i in range(1, len(hosts)+1):
+            print i, hosts[str(i)]
         print "What will be your Welcome Bot's host site?"
         try:
             res['host'] = hosts[raw_input().strip()]
@@ -35,4 +32,5 @@ def get_credentials():
         except KeyError:
             res['host'] = "invalid" 
     return res
+
 
