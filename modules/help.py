@@ -6,7 +6,7 @@ def open(file,mode='r',buffering=-1):
 
 def main(str, priv=False):
 	import json
-	parsed = json.loads(open('modules.json').read())
+	parsed = json.loads(open('../modules.json').read())
 	s = 'My commands are:\n    -'
 	for i in parsed:
 		s = s + i+'\n    -'

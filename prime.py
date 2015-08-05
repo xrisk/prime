@@ -54,7 +54,7 @@ def main():
 
     bot = init_bot(creds)
     bot.start(on_event)
-    
+    print 'BOT STARTED'
     while True:
       if 'no-input' not in sys.argv:  
           text = raw_input(">> ")
