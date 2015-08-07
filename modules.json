@@ -4,5 +4,7 @@
 	"//joke":"joke.py",
 	"//alive":"alive.py",
 	"//help":"help.py",
-	"//skeet":"skeetjokes.py"
+	"//skeet":"skeetjokes.py",
+  "//source":"source.py",
+  "//hm":"hangman.py"
 }
