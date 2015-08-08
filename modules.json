@@ -7,5 +7,6 @@
 	"//skeet":"skeetjokes.py",
   "//source":"source.py",
   "//hm":"hangman.py",
-  "//image":"image.py"
+  "//image":"image.py",
+  "//lmgtfy":"lmgtfy.py"
 }
