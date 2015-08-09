@@ -1,6 +1,7 @@
 import ChatExchange.chatexchange.client
 import ChatExchange.chatexchange.events
 import ChatExchange.chatexchange.browser
+from random import choice
 
 class Bot:
     def __init__(self, client, bot, room, welcome_message="Hi There!"):
@@ -24,7 +25,26 @@ class Bot:
             self.room.send_message(text)
             
     def greet(self, user):
-        self.message('@'+user.replace(' ','')+' '+self.welcome)
+        programming_languages = ["java", "python", "html", "c++", "bash", "javascript", "vbscript", "php"]
+        language = choice(programming_languages)
+        username = '@'+user.replace(' ','')+'!'
+        
+        if language == "java":
+            self.message("System.out.println(\"Hello, "+username+"\");")
+        elif language == "python":
+            self.message("print \"Hello, "+username+"\"")
+        elif language == "html":
+            self.message("<p>Hello, "+username+"</p>")
+        elif language == "c++":
+            self.message("std::cout << \"Hello, "+username+"\";")
+        elif language == "bash":
+            self.message("echo Hello, %"+username)+"%")
+        elif language == "javascript":
+            self.message("document.write('Hello, "+username+"');")
+        elif language == "vbscript":
+            self.message("WScript.Echo \"Hello, "+username+"\"")
+        elif language == "php":
+            self.message("<?php echo '<p>Hello, "+username+"</p>'; ?>")
             
     def start(self, callback):
         self.room.watch(callback)
