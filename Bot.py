@@ -4,12 +4,11 @@ import ChatExchange.chatexchange.browser
 from random import choice
 
 class Bot:
-    def __init__(self, client, bot, room, welcome_message="Hi There!"):
+    def __init__(self, client, bot, room):
         self.client = client
         self.room = room
         self.bot = bot
         self.paused = False
-        self.welcome = welcome_message
         
     def pause(self):
         self.paused = True
