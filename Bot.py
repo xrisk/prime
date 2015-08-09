@@ -28,7 +28,6 @@ class Bot:
         programming_languages = ["java", "python", "html", "c++", "bash", "javascript", "vbscript", "php"]
         language = choice(programming_languages)
         username = '@'+user.replace(' ','')+'!'
-        
         if language == "java":
             self.message("System.out.println(\"Hello, "+username+"\");")
         elif language == "python":
