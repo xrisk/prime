@@ -43,7 +43,7 @@ class Bot:
         elif language == "vbscript":
             self.message("WScript.Echo \"Hello, "+username+"\"")
         elif language == "php":
-            self.message("<?php echo '<p>Hello, "+username+"</p>'; ?>")
+            self.message("<?php echo 'Hello, "+username+"'; ?>")
             
     def start(self, callback):
         self.room.watch(callback)
