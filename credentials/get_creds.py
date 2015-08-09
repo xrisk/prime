@@ -8,7 +8,7 @@ def open(file,mode='r',buffering=-1):
 def get_credentials():
     import os
     res = {}
-    print "SETUP OPTIONS FOR PRIME"
+    print "SET UP CREDENTIALS FOR PRIME"
     if 'ChatExchangeU' in os.environ:
         res['user'] = os.environ['ChatExchangeU']
     else: 
