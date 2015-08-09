@@ -38,7 +38,7 @@ class Bot:
         elif language == "c++":
             self.message("std::cout << \"Hello, "+username+"\";")
         elif language == "bash":
-            self.message("echo Hello, %"+username)+"%")
+            self.message("echo Hello, %"+username+"%")
         elif language == "javascript":
             self.message("document.write('Hello, "+username+"');")
         elif language == "vbscript":
