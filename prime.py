@@ -55,10 +55,12 @@ def main():
     bot = init_bot(creds)
     bot.start(on_event)
     print 'PRIME HAS STARTED'
+    bot.message("I'm alive :)")
     while True:
       if 'no-input' not in sys.argv:  
           text = raw_input(">> ")
           if text == "die":
+              print 'PRIME HAS STOPPED RUNNING'
               bot.message("I'm dead :(")
               time.sleep(0.4)
               break
