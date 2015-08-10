@@ -27,6 +27,12 @@ The Dining Philosophers wait while Jon Skeet eats.
 Jon Skeet knows the air speed velocity of an unladen swallow, both African and European.
 Jon Skeet has more "Nice Answer" badges than you have badges.
 Jon Skeet saved the Princess.
+Jon Skeet can ask a question that even Jon Skeet can't answer. And he can answer it, too.
+When Jon Skeet gives a method an argument, the method loses.
+When Jon Skeet pushes a value onto a stack, it stays pushed.
+There is no 'CTRL' button on Jon Skeet's computer. Jon Skeet is always in control.
+The only time Jon Skeet was wrong was when he thought he had made a mistake.
+Jon Skeet does not run his programs. He just whispers, "You better run."
 """
 
 l = s.split('\n')

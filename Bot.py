@@ -4,12 +4,11 @@ import ChatExchange.chatexchange.browser
 from random import choice
 
 class Bot:
-    def __init__(self, client, bot, room, welcome_message="Hi There!"):
+    def __init__(self, client, bot, room):
         self.client = client
         self.room = room
         self.bot = bot
         self.paused = False
-        self.welcome = welcome_message
         
     def pause(self):
         self.paused = True
@@ -25,7 +24,7 @@ class Bot:
             self.room.send_message(text)
             
     def greet(self, user):
-        programming_languages = ["java", "python", "html", "c++", "bash", "javascript", "vbscript", "php"]
+        programming_languages = ["java", "python", "html", "c++", "bash", "javascript", "c", "vbscript", "php", "objective-c"]
         language = choice(programming_languages)
         username = '@'+user.replace(' ','')+'!'
         if language == "java":
@@ -37,13 +36,17 @@ class Bot:
         elif language == "c++":
             self.message("std::cout << \"Hello, "+username+"\";")
         elif language == "bash":
-            self.message("echo Hello, %"+username+"%")
+            self.message("echo Hello, "+username)
         elif language == "javascript":
             self.message("document.write('Hello, "+username+"');")
+        elif language == "c":
+            self.message("puts(\"Hello, "+username+"\");")
         elif language == "vbscript":
             self.message("WScript.Echo \"Hello, "+username+"\"")
         elif language == "php":
-            self.message("<?php echo '<p>Hello, "+username+"</p>'; ?>")
+            self.message("<?php echo 'Hello, "+username+"'; ?>")
+        elif language == "objective-c":
+            self.message("NSLog(@\"Hello, "+username+"\");")
             
     def start(self, callback):
         self.room.watch(callback)

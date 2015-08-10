@@ -57,7 +57,7 @@ def game():
    |
    |
    |
-  =========''', '''
+  =====''', '''
 
    +---+
    |   |
@@ -65,7 +65,7 @@ def game():
    |
    |
    |
-  =========''', '''
+  =====''', '''
 
    +---+
    |   |
@@ -73,7 +73,7 @@ def game():
    |   |
    |
    |
-  =========''', '''
+  =====''', '''
 
    +---+
    |   |
@@ -81,32 +81,32 @@ def game():
    |  /|
    |
    |
-  =========''', '''
+  =====''', '''
 
    +---+
    |   |
    |   O
-   |  /|\
+   |  /|\\
    |
    |
-  =========''', '''
+  =====''', '''
 
    +---+
    |   |
    |   O
-   |  /|\
+   |  /|\\
    |  /
    |
-  =========''', '''
+  =====''', '''
 
    +---+
    |   |
    |   O
-   |  /|\
-   |  / \
+   |  /|\\
+   |  / \\
    |
-  =========''']
-  words = 'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra'.split()
+  =====''']
+  words = 'aardvark alpaca antelope baboon badger beaver buffalo butterfly camel chimpanzee chipmunk cobra cougar coyote crane dolphin donkey dragonfly eagle elephant falcon ferret flamingo gecko giraffe goose hawk heron hippopotamus hyena jackal jaguar kangaroo leopard lizard llama mockingbird monkey moose mouse otter panda parrot penguin pigeon porcupine python rabbit raccoon raven reindeer rhinoceros salmon shark sheep sloth snake spider stork squirrel tiger tortoise trout turkey turtle whale wombat woodpecker zebra'.split()
 
   def getRandomWord(wordList=None):
     # This function returns a random string from the passed list of strings.
@@ -124,7 +124,7 @@ def game():
      if len(missedLetters) == 0:
         brint('Missed letters: None')
      else:
-        brint('Missed letters:' + ' '.join(missedLetters))
+        brint('Missed letters: ' + ' '.join(missedLetters))
 
      blanks = '_' * len(secretWord)
 
@@ -157,21 +157,19 @@ def game():
 
   while not gameIsDone:
      displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
-
-
+     
      print secretWord,'ALIBABA AND THE FORTY CHORS'
      guess = getGuess(missedLetters + correctLetters)
      if guess in secretWord:
          correctLetters = correctLetters + guess
-
-
+        
          foundAllLetters = True
          for i in range(len(secretWord)):
              if secretWord[i] not in correctLetters:
                  foundAllLetters = False
                  break
          if foundAllLetters:
-             brint('Yes! The secret word is "' + secretWord + '"! You have won!')
+             brint('You win! The word was "' + secretWord + '". You missed '+str(len(missedLetters))+' and guessed '+str(len(correctLetters))+' correct.')
              gameIsDone = True
      else:
          missedLetters = missedLetters + guess
@@ -179,5 +177,5 @@ def game():
 
          if len(missedLetters) == len(HANGMANPICS) - 1:
              displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
-             brint('You have run out of guesses! After ' + str(len(missedLetters)) + ' missed guesses and ' + str(len(correctLetters)) + ' correct guesses, the word was "' + secretWord + '"')
+             brint('You lose. The word was "' + secretWord + '". You missed '+str(len(missedLetters))+' and guessed '+str(len(correctLetters))+' correct.')
              gameIsDone = True
