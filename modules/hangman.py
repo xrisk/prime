@@ -8,16 +8,18 @@ the_end = False
 
 def main(s, priv=False):
   global buf
- 
+  global _in
   if 'start' in s:
     global the_end
     the_end = True
+    buf = []
+    _in = ''
     sleep(2)
     the_end = False
     n = thread.start_new_thread(game, tuple()) 
     print n
   else:
-    global _in
+   
     _in = s
     
     
@@ -106,10 +108,14 @@ def game():
   =========''']
   words = 'ant baboon badger bat bear beaver camel cat clam cobra cougar coyote crow deer dog donkey duck eagle ferret fox frog goat goose hawk lion lizard llama mole monkey moose mouse mule newt otter owl panda parrot pigeon python rabbit ram rat raven rhino salmon seal shark sheep skunk sloth snake spider stork swan tiger toad trout turkey turtle weasel whale wolf wombat zebra'.split()
 
-  def getRandomWord(wordList):
-     # This function returns a random string from the passed list of strings.
-     wordIndex = random.randint(0, len(wordList) - 1)
-     return wordList[wordIndex]
+  def getRandomWord(wordList=None):
+    # This function returns a random string from the passed list of strings.
+    #     wordIndex = random.randint(0, len(wordList) - 1)
+    import urllib
+    return urllib.urlopen('http://randomword.setgetgo.com/get.php').read().strip()
+#     return wordList[wordIndex]
+
+ 
 
   def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
      brint(HANGMANPICS[len(missedLetters)])
