@@ -16,8 +16,8 @@ def main(search_term, priv=False):
         return "No results were found for " + search_term
 
     if results > 0:
-        return "[%s](%s)" % (res['titleNoFormatting'], res['unescapedUrl']) + "\n"\
-            + chaterize_message(res["content"]).replace("\n", " ") + "\n"\
+        return "[%s](%s)" % (results['titleNoFormatting'], results['unescapedUrl']) + "\n"\
+            + chaterize_message(results["content"]).replace("\n", " ") + "\n"\
             + "[See More...](%s)" % moreResultsUrl
 
 def google_search(search_term):
