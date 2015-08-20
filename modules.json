@@ -1,12 +1,12 @@
 {
-	"//test":"test.py",
-	
-	"//joke":"joke.py",
 	"//alive":"alive.py",
+	"//test":"test.py",
+	"//joke":"joke.py",
 	"//help":"help.py",
 	"//skeet":"skeetjokes.py",
   "//source":"source.py",
   "//hm":"hangman.py",
   "//image":"image.py",
-  "//lmgtfy":"lmgtfy.py"
+  "//lmgtfy":"lmgtfy.py",
+  "//google":"google.py"
 }

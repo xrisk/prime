@@ -13,20 +13,12 @@ def main(search_term, priv=False):
         print results
     except TypeError:
         print "No results"
-        message.message.reply("No results were found for " + search_term)
-        return
+        return "No results were found for " + search_term
 
-    print message.content
-    print search_term
-
-    message.message.reply("Search results for **%s**: " % search_term)
-
-    count = len(results) < 3 and len(results) or 3
-    for i in range(0, count):
-        res = results[i]
-        room.send_message("[%s](%s)" % (res['titleNoFormatting'], res['unescapedUrl']))
-        room.send_message(chaterize_message(res["content"]).replace("\n", " "))
-        room.send_message("[See More...](%s)" % moreResultsUrl)
+    if results > 0:
+        return "[%s](%s)" % (res['titleNoFormatting'], res['unescapedUrl']) + "\n"\
+            + chaterize_message(res["content"]).replace("\n", " ") + "\n"\
+            + "[See More...](%s)" % moreResultsUrl
 
 def google_search(search_term):
     search_term = search_term.encode('ascii', errors='replace')
