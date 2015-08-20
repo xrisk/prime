@@ -1,3 +1,5 @@
+import getpass
+
 def open(file,mode='r',buffering=-1):
     import __builtin__    #use import builtins for Python 3.x
     import os.path
@@ -11,19 +13,19 @@ def get_credentials():
     print "SET UP CREDENTIALS FOR PRIME"
     if 'ChatExchangeU' in os.environ:
         res['user'] = os.environ['ChatExchangeU']
-    else: 
+    else:
         res['user'] = raw_input('Enter your Stack Overflow email ID: ')
-    
+
     if 'ChatExchangeP' in os.environ:
         res['pass'] = os.environ['ChatExchangeP']
     else:
-        res['pass'] = (raw_input('Enter your Stack Overflow password: '))
-        
+        res['pass'] = (getpass.getpass('Enter your Stack Overflow password: (hidden)'))
+
     if 'RoomID' in os.environ:
         res['room'] = (os.environ['RoomID'])
     else:
         res['room'] = (raw_input('Enter the ID of the room you wish to enter: '))
-                   
+
     if 'HostSite' in os.environ:
         res['host'] = (os.environ['HostSite'])
     else:
@@ -35,7 +37,5 @@ def get_credentials():
             res['host'] = hosts[raw_input("Enter the host site for Prime: ").strip()]
 
         except KeyError:
-            res['host'] = "invalid" 
+            res['host'] = "invalid"
     return res
-
-
