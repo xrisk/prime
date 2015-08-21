@@ -19,12 +19,12 @@ def main(s, priv=False):
 	sleep(2)
 	the_end = False
 	word = [urlopen('http://randomword.setgetgo.com/get.php').read().strip()]
-	n = thread.start_new_thread(game, tuple(word)) 
+	n = thread.start_new_thread(game, tuple(word))
 	print n
   else:
 	_in = s
-	
-	
+
+
   while len(buf) == False:
 	pass
   # read_input = False
@@ -32,10 +32,10 @@ def main(s, priv=False):
   cp = buf[:]
   buf = []
   return '\n'.join(cp)
-  
-  
+
+
 def raw_input():
-  global _in 
+  global _in
   _in = '$$$'
   #scary magic :6
   while _in == '$$$':
@@ -48,9 +48,9 @@ def raw_input():
 def brint(s):
   global buf
   buf.append(s)
-  
-  
-  
+
+
+
 def game(word):
   HANGMANPICS = ['''
 
@@ -109,11 +109,11 @@ def game(word):
    |  / \\
    |
   =====''']
-  
+
   def displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord):
 	 brint(HANGMANPICS[len(missedLetters)])
 	 brint('')
-	
+
 	 if len(missedLetters) == 0:
 		brint('Missed letters: None')
 	 else:
@@ -150,12 +150,12 @@ def game(word):
 
   while not gameIsDone:
 	 displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
-	 
+
 	 print secretWord,'ALIBABA AND THE FORTY CHORS'
 	 guess = getGuess(missedLetters + correctLetters)
 	 if guess in secretWord:
 		 correctLetters = correctLetters + guess
-		
+
 		 foundAllLetters = True
 		 for i in range(len(secretWord)):
 			 if secretWord[i] not in correctLetters:
@@ -172,4 +172,3 @@ def game(word):
 			 displayBoard(HANGMANPICS, missedLetters, correctLetters, secretWord)
 			 brint('You lose. The word was "' + secretWord + '". You missed '+str(len(missedLetters))+' and guessed '+str(len(correctLetters))+' correct.')
 			 gameIsDone = True
-	
