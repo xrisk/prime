@@ -16,8 +16,8 @@ def open(file,mode='r',buffering=-1):
     import os.path
     filePath = os.path.join(os.path.dirname(__file__),file)
     return __builtin__.open(filePath,mode,buffering)
-  
-  
+
+
 def init_modules():
     import json, imp, os
     global modules
@@ -31,7 +31,7 @@ def init_modules():
         print e
     except ValueError, e:
     	print e
-    
+
 def init_privileged():
     import shelve
     global privileged
@@ -42,11 +42,11 @@ def init_privileged():
 
 
 def main():
-   
+
     global bot
     global modules
     init_modules()
-                 
+
     while True:
         creds = credentials.get()
         print creds
@@ -57,7 +57,7 @@ def main():
     print 'PRIME HAS STARTED'
     bot.message("I'm alive :)")
     while True:
-      if 'no-input' not in sys.argv:  
+      if 'no-input' not in sys.argv:
           text = raw_input(">> ")
           if text == "die":
               print 'PRIME HAS STOPPED RUNNING'
@@ -71,7 +71,7 @@ def main():
 
 
 def on_event(event, client):
-   
+
     if isinstance(event, ChatExchange.chatexchange.events.UserEntered):
         on_enter(event)
     elif isinstance(event, ChatExchange.chatexchange.events.MessagePosted):
