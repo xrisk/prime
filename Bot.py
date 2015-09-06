@@ -46,30 +46,8 @@ class Bot:
 
 	def greet(self, user):
 		"""Greet a user."""
-		programming_languages = ["java", "python", "html", "c++", "bash",
-			"javascript", "c", "vbscript", "php", "objective-c"]
-		language = random.choice(programming_languages)
-		username = '@' + user.replace(' ', '') + '!'
-		if language == "java":
-			self.message("System.out.println(\"Hello, " + username + "\");")
-		elif language == "python":
-			self.message("print \"Hello, " + username + "\"")
-		elif language == "html":
-			self.message("<p>Hello, " + username + "</p>")
-		elif language == "c++":
-			self.message("std::cout << \"Hello, " + username + "\";")
-		elif language == "bash":
-			self.message("echo Hello, " + username)
-		elif language == "javascript":
-			self.message("document.write('Hello, " + username + "');")
-		elif language == "c":
-			self.message("puts(\"Hello, " + username + "\");")
-		elif language == "vbscript":
-			self.message("WScript.Echo \"Hello, " + username + "\"")
-		elif language == "php":
-			self.message("<?php echo 'Hello, " + username + "'; ?>")
-		elif language == "objective-c":
-			self.message("NSLog(@\"Hello, " + username + "\");")
+		username = '@' + user.replace(' ', '')
+		self.message("Welcome to the Teenage Territory, " + username + "!")
 
 	def start(self, callback):
 		"""Start watching the room for events, sending them to `callback`."""
