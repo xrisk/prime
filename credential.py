@@ -10,6 +10,7 @@ and `validate` which checks whether this particular `credential` instance
 contains valid credentials.
 """
 
+import getpass
 
 class Credential:
 
@@ -76,8 +77,8 @@ def validate(x):
 
 def read():
 	"""Prompt-based function to read in from sys.stdin."""
-	e = raw_input("Enter your StackExchange emailID >> ")
-	p = raw_input("Enter your StackExchange password >> ")
+	e = raw_input("Enter your StackExchange email ID >> ")
+	p = getpass.getpass("Enter your StackExchange password >> ")
 	possible_hosts = []
 	with open('hosts.txt') as f:
 		for line in f:
@@ -86,8 +87,8 @@ def read():
 	possible_hosts = filter(lambda x: x != '', possible_hosts)
 	for i in range(len(possible_hosts)):
 		print i + 1, possible_hosts[i]
-	h = raw_input("Enter a choice of hostsite >> ")
+	h = raw_input("Enter a choice of host site >> ")
 	while not (h.isdigit() and 1 <= int(h) <= len(possible_hosts)):
 		print "Invalid option."
-		h = raw_input("Enter a choice of hostsite >> ")
+		h = raw_input("Enter a choice of host site >> ")
 	return Credential(e, p, possible_hosts[int(h)])
