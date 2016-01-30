@@ -13,14 +13,14 @@ It’ll ask for your StackExchange email and password. Remember that only accoun
 ```
 $ python prime.py
 SET UP CREDENTIALS FOR PRIME
-Enter your Stack Overflow email ID: rishav.kundu98@gmail.com
+Enter your Stack Overflow email ID: (hidden)
 Enter your Stack Overflow password: (hidden)
 Enter the ID of the room you wish to enter: 85048
 1 chat.exchange.com
 2 chat.meta.stackoverflow.com
 3 chat.stackoverflow.com
 Enter the host site for Prime: 3
-{'host': u'chat.stackoverflow.com', 'room': '85048', 'user': 'rishav.kundu98@gmail.com', 'pass': ';)'}
+{'host': u'chat.stackoverflow.com', 'room': '85048', 'user': '(hidden)', 'pass': '(hidden)'}
 PRIME HAS STARTED
 >> 
 
